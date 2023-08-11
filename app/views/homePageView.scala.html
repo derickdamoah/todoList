@@ -1,0 +1,25 @@
+@import views.html.components.button
+@import views.html.helper.CSRF
+@import views.html.helper.form
+@this()
+@(todoItems: Seq[TodoModel])(implicit request: Request[_], messages: Messages)
+@main("ToDo List") {
+  <h1>Todo List</h1>
+  <section class="addNewItem">
+
+  @todoItems.map { items =>
+    <article>
+      <details>
+        <summary>@items.title</summary>
+        <p>@items.description</p>
+      </details>
+      <button type="submit"><a href="@routes.EditItemController.showEdit(items._id.get.getValue.toString)">Edit</a></button>
+      @button(route = routes.DeleteController.delete(items._id.get.getValue.toString), buttonTitle = "Delete")
+    </article>
+  }
+
+  </section>
+
+  <section><button value="Add Item" type="submit"><a href="@routes.AddItemController.showAddItem()">Add Item</a></button></section>
+
+}

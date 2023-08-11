@@ -1,0 +1,17 @@
+@import views.html.helper._
+@this()
+@(todoForm: Form[TodoModel], id: String)(implicit request: Request[_], messages: Messages)
+@main("Edit Page") {
+    <h1>Edit Item</h1>
+    <section>
+
+        <button value="Back" type="submit"><a href="@routes.HomeController.home()">Back</a></button>
+        @form(action = routes.EditItemController.postEdit(id)) {
+            @CSRF.formField
+            @helper.inputText(todoForm("title"))
+            @helper.inputText(todoForm("description"))
+            <input type="submit" value="Edit Item">
+            }
+    </section>
+
+}

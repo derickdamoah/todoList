@@ -1,0 +1,18 @@
+@import views.html.helper._
+@this()
+@(todoForm: Form[TodoModel])(implicit request: Request[_], messages: Messages)
+@main("ToDo List") {
+    <h1>Add Item</h1>
+    <section class="addNewItem">
+
+    <button value="Back" type="submit"><a href="@routes.HomeController.home()">Back</a></button>
+
+    @form(action = routes.AddItemController.addItem()) {
+        @CSRF.formField
+        @helper.inputText(todoForm("title"))
+        @helper.inputText(todoForm("description"))
+        <input type="submit" value="AddItem">
+    }
+    </section>
+
+}
