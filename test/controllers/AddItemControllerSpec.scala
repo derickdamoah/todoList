@@ -1,24 +1,23 @@
 package controllers
 
 import akka.stream.Materializer
+import org.mockito.Mockito.when
 import org.scalatestplus.mockito.MockitoSugar
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
-import play.api.http.Status.OK
+import play.api.http.Status.{BAD_REQUEST, OK, SEE_OTHER}
 import play.api.test.CSRFTokenHelper.CSRFFRequestHeader
-import play.api.test.Helpers.{GET, contentAsString, contentType, defaultAwaitTimeout, route, status, stubControllerComponents, writeableOf_AnyContentAsEmpty}
+import play.api.test.Helpers.{GET, POST, contentAsString, contentType, defaultAwaitTimeout, redirectLocation, route, status, stubControllerComponents, writeableOf_AnyContentAsEmpty}
 import play.api.test.{FakeRequest, Injecting}
-import services.MongoService
+import testUtils.TestUtils
 import views.html.addItem
 
-class AddItemControllerSpec  extends PlaySpec with GuiceOneAppPerSuite with Injecting with MockitoSugar{
-  val stubMongoService: MongoService = mock[MongoService]
+import scala.concurrent.Future
+
+class AddItemControllerSpec  extends PlaySpec with GuiceOneAppPerSuite with Injecting with MockitoSugar with TestUtils{
   val stubAddItemView: addItem = inject[addItem]
   implicit val materializer: Materializer = app.materializer
 
-
-  // what doe MAterializer do>
-//  what does the GuiceFakeApplication factory do and how does it differ from GuiceOneAppPerSuite GuiceOneAppPerTest?
 
   "AddItemController.showAddItem()" should {
 
@@ -32,7 +31,7 @@ class AddItemControllerSpec  extends PlaySpec with GuiceOneAppPerSuite with Inje
 
     "render the add item page from the application" in {
       val controller = inject[AddItemController]
-      val addItem = controller.showAddItem().apply(FakeRequest(GET, "/addItem"))
+      val addItem = controller.showAddItem().apply(FakeRequest(GET, "/addItem").withCSRFToken)
 
       status(addItem) mustBe OK
       contentType(addItem) mustBe Some("text/html")
@@ -47,6 +46,35 @@ class AddItemControllerSpec  extends PlaySpec with GuiceOneAppPerSuite with Inje
       contentType(addItem) mustBe Some("text/html")
       println(addItem)
       contentAsString(addItem) must include ("Add Item")
+    }
+  }
+
+  "AddItemController.addItem()" should {
+    "redirect to the homepage when a valid form data is submitted" in {
+      val testController = new AddItemController(stubControllerComponents(), stubMongoService, stubAddItemView)
+      when(stubMongoService.createTask("test title", "test description")).thenReturn(Future.successful(true))
+      val result = testController.addItem().apply(
+        FakeRequest(POST, "/addItem")
+        .withFormUrlEncodedBody( "title" -> "test title 6", "description" -> "test description")
+      )
+
+      status(result) mustBe SEE_OTHER
+      redirectLocation(result) mustBe Some(routes.HomeController.home().url)
+
+    }
+
+    "re-render the add item page when an invalid form data is submitted" in {
+
+      val testController = new AddItemController(stubControllerComponents(), stubMongoService, stubAddItemView)
+      when(stubMongoService.createTask("test title", "")).thenReturn(Future.successful(false))
+      val result = testController.addItem().apply(
+        FakeRequest(POST, "/addItem")
+        .withFormUrlEncodedBody( "title" -> "", "description" -> "")
+          .withCSRFToken
+      )
+
+      status(result) mustBe BAD_REQUEST
+      contentAsString(result) must include("Add Item")
     }
   }
 }

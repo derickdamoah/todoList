@@ -29,7 +29,7 @@ class EditItemController @Inject()
             Ok(editPage(todoForm.fillAndValidate(value), id))
 
           case None =>
-            logger.error(s"[EditItemController][showEdit] - could not find an item with id $id")
+            logger.error(s"[EditItemController][showEdit] - could not find an item with id: $id")
             BadRequest(errorView(s"Something went wrong: could not find item with id: $id"))
         }
         }
@@ -46,10 +46,14 @@ class EditItemController @Inject()
         },
         formData => {
           mongoService.updateOneTask(id, formData.title, formData.description)
-          logger.warn(s"[EditItemController][postEdit] - successfully changed the values of the item with id: $id")
+          logger.warn(s"[EditItemController][postEdit] - successfully updated the item with id: $id")
           Redirect(routes.HomeController.home())
         }
       )
+    }.recover{
+      case exception: Exception =>
+        logger.error(s"[EditItemController][postEdit] - An unexpected error occurred while updating item with id: $id; ${exception.getMessage}")
+        InternalServerError(errorView(s"An Unexpected error occurred while u[dating item with id: $id"))
     }
 
   }
