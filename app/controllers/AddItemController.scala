@@ -9,7 +9,7 @@ import utils.LoggerUtil
 import views.html.addItem
 
 import javax.inject.{Inject, Singleton}
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
 class AddItemController @Inject()
@@ -17,7 +17,7 @@ class AddItemController @Inject()
  mongoService: MongoService,
  addItemView: addItem
 ) extends BaseController with I18nSupport with LoggerUtil{
-
+  implicit val ec: ExecutionContext = controllerComponents.executionContext
 
   def showAddItem(): Action[AnyContent] = Action.async { implicit request =>
     logger.info("[AddItemController][showAddItem] - Add Item page rendered correctly")
@@ -34,6 +34,10 @@ class AddItemController @Inject()
         mongoService.createTask(formData.title, formData.description)
         logger.info("[AddItemController][addItem] - Successfully created a new item, redirecting to home page")
         Future.successful(Redirect(routes.HomeController.home()))
+      }.recover{
+        case exception: Exception =>
+          logger.error(s"[AddItemController][addItem] - an unexpected error occurred while creating a new item: ${exception.getMessage}")
+          throw new Exception(s"an unexpected error occurred while creating a new item: ${exception.getMessage}")
       }
     )
 

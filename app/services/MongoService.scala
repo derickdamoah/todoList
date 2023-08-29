@@ -24,6 +24,10 @@ class MongoService @Inject()
     mongoConnector.createTask(document).map{
       case createResult if createResult.wasAcknowledged() => true
       case _ => false
+    }.recover {
+      case exception: Exception =>
+        logger.error(s"[MongoService][createTask] - an unexpected error occurred while creating a new item: ${exception.getMessage}")
+        throw new Exception(s"an unexpected error occurred while creating a new item: ${exception.getMessage}")
     }
   }
 

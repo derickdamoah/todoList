@@ -12,8 +12,8 @@ class MongoRepository @Inject()(val controllerComponents: ControllerComponents, 
   lazy val mongoClient: MongoClient = MongoClient(mongoUri)
   implicit val ec: ExecutionContext = controllerComponents.executionContext
 
-  val database: MongoDatabase = mongoClient.getDatabase("testDatabase")
+  val database: MongoDatabase = mongoClient.getDatabase("todoDatabase")
 
-  val collection: MongoCollection[Document] = database.getCollection("testCollection")
+  val collection: MongoCollection[Document] = database.getCollection("todoCollection")
 
 }
