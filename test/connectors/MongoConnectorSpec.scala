@@ -1,16 +1,15 @@
 package connectors
 
+import org.bson.types.ObjectId
 import org.mockito.ArgumentMatchers.any
 import org.mockito.Mockito.{verify, when}
-import org.mongodb.scala.bson.BsonDocument
-import org.mongodb.scala.result.InsertOneResult
+import org.mongodb.scala.result.{DeleteResult, InsertOneResult}
 import org.mongodb.scala.{Document, FindObservable, MongoCollection, SingleObservable}
 import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.ScalaFutures.convertScalaFuture
 import org.scalatestplus.mockito.MockitoSugar.mock
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
-import play.api.Configuration
 import play.api.test.Helpers.stubControllerComponents
 import play.api.test.Injecting
 import repositories.MongoRepository
@@ -22,21 +21,16 @@ class MongoConnectorSpec extends PlaySpec with GuiceOneAppPerSuite with Injectin
 
   implicit val ec: ExecutionContext = stubControllerComponents().executionContext
 
-  //stubs
-  lazy val testConfiguration: Configuration = app.injector.instanceOf[Configuration]
-  lazy val testMongoRepository: MongoRepository = new MongoRepository(stubControllerComponents(), testConfiguration)
-  lazy val testStubbedConnector: MongoConnector = new MongoConnector(stubControllerComponents(), testMongoRepository)
-
   //mocks
   lazy val mockRepository: MongoRepository = mock[MongoRepository]
   lazy val mockInsertOneResult: InsertOneResult = mock[InsertOneResult]
   lazy val mockSingleObservable: SingleObservable[InsertOneResult] = mock[SingleObservable[InsertOneResult]]
-  lazy val mockFindObservable: FindObservable[Document] = mock[FindObservable[Document]]
   lazy val mockCollection: MongoCollection[Document] = mock[MongoCollection[Document]]
   lazy val testMockedConnector = new MongoConnector(stubControllerComponents(), mockRepository)
-
-  val testDocument = Document("title" -> "test title7", "description" -> "test description7")
-  val testBsonDocument: BsonDocument = BsonDocument(testDocument)
+  lazy val mockFindObservable: FindObservable[Document] = mock[FindObservable[Document]]
+  lazy val mockConnector: MongoConnector = mock[MongoConnector]
+  val testDocument = Document("title" -> "test title", "description" -> "test description")
+  val testId = new ObjectId("123456789012345678901234")
 
   "calling createTask()" should{
     "successfully create a new item in the database when a there is a valid document" in {
@@ -45,7 +39,7 @@ class MongoConnectorSpec extends PlaySpec with GuiceOneAppPerSuite with Injectin
       when(mockCollection.insertOne(any[Document])).thenReturn(mockSingleObservable)
       when(mockSingleObservable.toFuture()).thenReturn(Future.successful(mockInsertOneResult))
 
-      val result = testMockedConnector.createTask(Document("title" -> "test title", "description" -> "test description"))
+      val result = testMockedConnector.createTask(testDocument)
 
       result.map { res =>
         res.wasAcknowledged() mustBe true
@@ -71,42 +65,58 @@ class MongoConnectorSpec extends PlaySpec with GuiceOneAppPerSuite with Injectin
 
   "calling getAllTasks()" should {
 
-    "return a list of documents when successful with Mocks" in {
+    "return a list of documents when successful" in {
+      val mockConnector = mock[MongoConnector]
 
-      when(mockRepository.collection).thenReturn(mockCollection)
-      when(mockCollection.insertOne(any[Document])).thenReturn(mockSingleObservable)
-      when(mockSingleObservable.toFuture()).thenReturn(Future.successful(mockInsertOneResult))
+      when(mockConnector.getAllTasks).thenReturn(Future.successful(Seq(testDocument)))
 
-      testMockedConnector.createTask(Document("title" -> "test title", "description" -> "test description"))
-
-      when(mockRepository.collection).thenReturn(mockCollection)
-      when(mockCollection.find()).thenReturn(mockFindObservable)
-      when(mockFindObservable.toFuture()).thenReturn(Future.successful(Seq(Document("title" -> "test title", "description" -> "test description"))))
-
-
-      val result  = testMockedConnector.getAllTasks
+      val result = mockConnector.getAllTasks
 
       result.futureValue.size mustBe 1
-      result.futureValue mustBe Seq(Document("title" -> "test title", "description" -> "test description"))
+      result.futureValue mustBe Seq(testDocument)
     }
 
-    "return a list of documents when successful with stubs" in {
+  }
 
-      val result  = testStubbedConnector.getAllTasks
+  "calling getOneTask(id)" should{
+    "return a document when the connector call is successful" in {
+      when(mockConnector.getOneTask(testId)).thenReturn(Future.successful(Some(testDocument)))
 
-      //this is getting the documents from the actual database
-      result.futureValue.size mustBe 3
+      val result = mockConnector.getOneTask(testId)
+
+      result.futureValue mustBe Some(testDocument)
     }
 
-    "throw an exception when there is an error" in {
+    "return a None when there is no item associated with the id" in {
+      when(mockConnector.getOneTask(testId)).thenReturn(Future.successful(None))
 
-      //this doesnt work
-      val exception = intercept[Exception] {
-        testStubbedConnector.getAllTasks.failed.futureValue
-      }
+      val result = mockConnector.getOneTask(testId)
 
-      exception.getMessage must contain("an unexpected error occurred:")
+      result.futureValue mustBe None
     }
+  }
+
+  "calling updateOneTask(id)" should{
+    "return an updated document" in {
+      when(mockConnector.updateOneTask(testId, testDocument)).thenReturn(Future.successful(testDocument))
+
+      val result = mockConnector.updateOneTask(testId, testDocument)
+
+      result.futureValue mustBe testDocument
+    }
+
+  }
+
+  "calling deleteTask(id)" should{
+    "delete the document" in {
+      val mockDeleteResult = mock[DeleteResult]
+      when(mockConnector.deleteTask(testId)).thenReturn(Future.successful(mockDeleteResult))
+
+      val result = mockConnector.deleteTask(testId)
+
+      result.futureValue mustBe mockDeleteResult
+    }
+
   }
 
 }

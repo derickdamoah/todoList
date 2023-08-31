@@ -36,7 +36,7 @@ mongoRepository: MongoRepository) extends LoggerUtil{
     mongoRepository.collection.find(Filters.equal("_id", id)).headOption().recover{
       case e: Exception =>
         logger.error(s"[MongoConnector][getOneTask] - could not retrieve item: ${e.getMessage}")
-        throw new Exception(s"could not retrieve item: ${e.getMessage}")
+        throw new Exception(s"could not retrieve item with id: $id ${e.getMessage}")
     }
   }
 
