@@ -35,7 +35,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerSuite with Injectin
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("ToDo List")
+      contentAsString(home) must include ("Todo List")
     }
 
     "render the index page from the application" in {
@@ -44,7 +44,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerSuite with Injectin
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("ToDo List")
+      contentAsString(home) must include ("Todo List")
     }
 
     "render the index page from the router" in {
@@ -53,7 +53,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerSuite with Injectin
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("ToDo List")
+      contentAsString(home) must include ("Todo List")
     }
   }
 }

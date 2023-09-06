@@ -1,6 +1,7 @@
+@import views.html.components.backButton
 @this()
 @(errorMessage: String)(implicit request: Request[_], messages: Messages)
 @main("Error") {
     <h1>@errorMessage</h1>
-    <button value="Back" type="submit"><a href="@routes.HomeController.home()">Home</a></button>
+    @backButton.render()
 }

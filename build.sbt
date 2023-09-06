@@ -14,6 +14,7 @@ libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.4.8"
 libraryDependencies += "org.mockito" %  "mockito-core"  % "5.4.0" % Test
 libraryDependencies += "org.scalatestplus" %% "mockito-3-12" % "3.2.10.0" % Test
 libraryDependencies += "com.typesafe.play" %% "play" % "2.8.20"
+libraryDependencies += "org.jsoup" % "jsoup" % "1.16.1"
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
 enablePlugins(ScoverageSbtPlugin)
 coverageEnabled := true

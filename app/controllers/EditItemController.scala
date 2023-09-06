@@ -6,7 +6,7 @@ import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, BaseController, ControllerComponents}
 import services.MongoService
 import utils.LoggerUtil
-import views.html.{editPageView, errorView}
+import views.html.{editPageView, genericErrorView}
 
 import javax.inject.Inject
 import scala.concurrent.ExecutionContext
@@ -15,7 +15,7 @@ class EditItemController @Inject()
 (val controllerComponents: ControllerComponents,
  mongoService: MongoService,
  editPage: editPageView,
- errorView: errorView
+ errorView: genericErrorView
 )  extends BaseController with I18nSupport with LoggerUtil{
   implicit val ec: ExecutionContext = controllerComponents.executionContext
 

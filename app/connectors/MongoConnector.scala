@@ -46,7 +46,7 @@ mongoRepository: MongoRepository) extends LoggerUtil{
     ).toFuture().recover{
       case e: Exception =>
         logger.error(s"[MongoConnector][updateOneTask] - could not update item: ${e.getMessage}")
-        throw new Exception(s"could not delete item: ${e.getMessage}")
+        throw new Exception(s"could not update item: ${e.getMessage}")
     }
   }
 

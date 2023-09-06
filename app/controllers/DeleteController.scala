@@ -4,7 +4,7 @@ import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, BaseController, ControllerComponents}
 import services.MongoService
 import utils.LoggerUtil
-import views.html.errorView
+import views.html.genericErrorView
 
 import javax.inject.Inject
 import scala.concurrent.ExecutionContext
@@ -12,7 +12,7 @@ import scala.concurrent.ExecutionContext
 class DeleteController @Inject()
 (val controllerComponents: ControllerComponents,
  mongoService: MongoService,
- errorView: errorView
+ errorView: genericErrorView
 )
   extends BaseController with I18nSupport with LoggerUtil{
   implicit val ec: ExecutionContext = controllerComponents.executionContext

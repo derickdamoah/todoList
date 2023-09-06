@@ -8,13 +8,13 @@ import play.api.http.Status.{INTERNAL_SERVER_ERROR, SEE_OTHER}
 import play.api.test.Helpers.{POST, defaultAwaitTimeout, status, stubControllerComponents}
 import play.api.test.{FakeRequest, Injecting}
 import testUtils.TestUtils
-import views.html.errorView
+import views.html.genericErrorView
 
 import scala.concurrent.Future
 
 class DeleteControllerSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting with TestUtils{
 
-  val stubErrorView: errorView = inject[errorView]
+  val stubErrorView: genericErrorView = inject[genericErrorView]
   val testDeleteController: DeleteController = new DeleteController(
     controllerComponents = stubControllerComponents(),
     mongoService = stubMongoService,

@@ -9,13 +9,13 @@ import play.api.test.CSRFTokenHelper.CSRFRequest
 import play.api.test.Helpers.{GET, POST, contentAsString, defaultAwaitTimeout, redirectLocation, status, stubControllerComponents}
 import play.api.test.{FakeRequest, Injecting}
 import testUtils.TestUtils
-import views.html.{editPageView, errorView}
+import views.html.{editPageView, genericErrorView}
 
 import scala.concurrent.Future
 
 class EditItemControllerSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting with TestUtils{
 
-  val stubErrorPageView: errorView = inject[errorView]
+  val stubErrorPageView: genericErrorView = inject[genericErrorView]
   val stubEditPageView: editPageView = inject[editPageView]
 
   val testController = new EditItemController(stubControllerComponents(), stubMongoService, stubEditPageView, stubErrorPageView)
