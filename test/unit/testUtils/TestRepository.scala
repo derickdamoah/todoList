@@ -1,4 +1,4 @@
-package testUtils
+package unit.testUtils
 
 import org.mongodb.scala.{Document, MongoClient, MongoCollection, MongoDatabase}
 import repositories.MongoRepository

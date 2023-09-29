@@ -27,16 +27,16 @@ mongoRepository: MongoRepository) extends LoggerUtil{
   def getAllTasks: Future[Seq[Document]] = {
     mongoRepository.collection.find().toFuture().recover{
       case exception: Exception =>
-        logger.error(s"[MongoConnector][getAllTasks] - an unexpected error occurred: ${exception.getMessage}")
-        throw new Exception(s"an unexpected error occurred: ${exception.getMessage}")
+        logger.error(s"[MongoConnector][getAllTasks] - an unexpected error occurred, could not retrieve all items: ${exception.getMessage}")
+        throw new Exception(s"an unexpected error occurred, could not retrieve all items: ${exception.getMessage}")
     }
   }
 
   def getOneTask(id: ObjectId): Future[Option[Document]] = {
     mongoRepository.collection.find(Filters.equal("_id", id)).headOption().recover{
       case e: Exception =>
-        logger.error(s"[MongoConnector][getOneTask] - could not retrieve item: ${e.getMessage}")
-        throw new Exception(s"could not retrieve item with id: $id ${e.getMessage}")
+        logger.error(s"[MongoConnector][getOneTask] - an unexpected error occurred, could not retrieve item with id: $id ${e.getMessage}")
+        throw new Exception(s"an unexpected error occurred, could not retrieve item with id: $id ${e.getMessage}")
     }
   }
 
@@ -45,16 +45,16 @@ mongoRepository: MongoRepository) extends LoggerUtil{
       Filters.equal("_id", id), document, FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER)
     ).toFuture().recover{
       case e: Exception =>
-        logger.error(s"[MongoConnector][updateOneTask] - could not update item: ${e.getMessage}")
-        throw new Exception(s"could not update item: ${e.getMessage}")
+        logger.error(s"[MongoConnector][updateOneTask] - an unexpected error occurred, could not update item: ${e.getMessage}")
+        throw new Exception(s"an unexpected error occurred, could not update item: ${e.getMessage}")
     }
   }
 
   def deleteTask(id: ObjectId): Future[DeleteResult] = {
     mongoRepository.collection.deleteOne(Filters.equal("_id", id)).toFuture().recover{
       case e: Exception =>
-        logger.error(s"[MongoConnector][deleteTask] - could not delete item: ${e.getMessage}")
-        throw new Exception(s"could not delete item: ${e.getMessage}")
+        logger.error(s"[MongoConnector][deleteTask] - an unexpected error occurred, could not delete item: ${e.getMessage}")
+        throw new Exception(s"an unexpected error occurred, could not delete item: ${e.getMessage}")
     }
   }
 }

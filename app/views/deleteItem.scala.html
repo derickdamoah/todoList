@@ -1,0 +1,10 @@
+@import views.html.helper.CSRF
+@import views.html.helper.form
+@(itemId: String)(implicit request: Request[_], messages: Messages)
+<span class="addNewItem">
+    @form(routes.DeleteController.delete(itemId)) {
+        @CSRF.formField
+        <input type="submit" class="btn btn-danger" value="Delete">
+    }
+</span>
+

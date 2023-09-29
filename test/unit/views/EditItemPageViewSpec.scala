@@ -1,4 +1,4 @@
-package views
+package unit.views
 
 import controllers.routes
 import forms.TodoForm.todoForm
@@ -13,28 +13,28 @@ import play.api.mvc.{MessagesControllerComponents, Request}
 import play.api.test.CSRFTokenHelper.CSRFRequest
 import play.api.test.Helpers.{contentAsString, defaultAwaitTimeout}
 import play.api.test.{FakeRequest, Injecting}
-import views.html.addItem
+import views.html.editPageView
 
-class AddItemPageViewSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting {
+class EditItemPageViewSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting {
 
-  val stubView: addItem = inject[addItem]
+  val stubView: editPageView = inject[editPageView]
   val validData: Map[String, String] = Map("_id" -> "000000000000000000000000", "title" -> "test title", "description" -> "test description")
   val formResult: Form[TodoModel] = todoForm.bind(data = validData)
 
   implicit val request: Request[_] = FakeRequest().withCSRFToken
   val mcc: MessagesControllerComponents = app.injector.instanceOf[MessagesControllerComponents]
   implicit val messages: Messages = mcc.messagesApi.preferred(request)
-  val view: String = contentAsString(stubView.apply(formResult))
+  val view: String = contentAsString(stubView.apply(formResult,"000000000000000000000000"))
   val doc: Document = Jsoup.parse(view)
 
   "the homepage view" should {
 
     "have the correct title" in  {
-      doc.select("""title""").text() mustBe "Add Item Page"
+      doc.select("""title""").text() mustBe "Edit Page"
     }
 
     "have the correct heading" in {
-      doc.getElementsByTag("h1").text() mustBe "Add Item"
+      doc.getElementsByTag("h1").text() mustBe "Edit Item"
     }
 
     "have a back button" in {
@@ -44,7 +44,7 @@ class AddItemPageViewSpec extends PlaySpec with GuiceOneAppPerSuite with Injecti
 
     "have the correct form" in {
       doc.select("""form""").attr("method") mustBe "POST"
-      doc.select("""form""").attr("action") mustBe routes.AddItemController.addItem().url
+      doc.select("""form""").attr("action") mustBe routes.EditItemController.postEdit("000000000000000000000000").url
     }
 
     "have the correct labels" in {
@@ -58,7 +58,7 @@ class AddItemPageViewSpec extends PlaySpec with GuiceOneAppPerSuite with Injecti
     }
 
     "have the correct submit button" in {
-      doc.select("""input[type="submit"]""").attr("value") mustBe "Add Item"
+      doc.select("""input[type="submit"]""").attr("value") mustBe "Edit Item"
     }
 
     "show the correct error messages" when {
@@ -66,7 +66,7 @@ class AddItemPageViewSpec extends PlaySpec with GuiceOneAppPerSuite with Injecti
       "the title and description field are missing" in {
         val inValid: Map[String, String] = Map("_id" -> "000000000000000000000000")
         val formResult: Form[TodoModel] = todoForm.bind(data = inValid)
-        val view: String = contentAsString(stubView.apply(formResult))
+        val view: String = contentAsString(stubView.apply(formResult, "000000000000000000000000"))
         val doc: Document = Jsoup.parse(view)
 
         doc.select("""#title_field>.error""").text() mustBe "This field is required"
@@ -76,7 +76,7 @@ class AddItemPageViewSpec extends PlaySpec with GuiceOneAppPerSuite with Injecti
       "the title and description field are left empty" in {
         val inValid: Map[String, String] = Map("_id" -> "000000000000000000000000", "title" -> "", "description" -> "")
         val formResult: Form[TodoModel] = todoForm.bind(data = inValid)
-        val view: String = contentAsString(stubView.apply(formResult))
+        val view: String = contentAsString(stubView.apply(formResult, "000000000000000000000000"))
         val doc: Document = Jsoup.parse(view)
 
         doc.select("""#title_field>.error""").text() mustBe "The title cannot be empty"

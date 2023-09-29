@@ -1,5 +1,6 @@
-package controllers
+package unit.controllers
 
+import controllers.DeleteController
 import org.mockito.Mockito.when
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
@@ -7,7 +8,7 @@ import play.api.http.Status
 import play.api.http.Status.{INTERNAL_SERVER_ERROR, SEE_OTHER}
 import play.api.test.Helpers.{POST, defaultAwaitTimeout, status, stubControllerComponents}
 import play.api.test.{FakeRequest, Injecting}
-import testUtils.TestUtils
+import unit.testUtils.TestUtils
 import views.html.genericErrorView
 
 import scala.concurrent.Future

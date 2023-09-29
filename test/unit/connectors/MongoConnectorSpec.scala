@@ -1,5 +1,6 @@
-package connectors
+package unit.connectors
 
+import connectors.MongoConnector
 import org.bson.types.ObjectId
 import org.mockito.ArgumentMatchers.any
 import org.mockito.Mockito.{verify, when}
@@ -13,7 +14,7 @@ import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.test.Helpers.stubControllerComponents
 import play.api.test.Injecting
 import repositories.MongoRepository
-import testUtils.TestUtils
+import unit.testUtils.TestUtils
 
 import scala.concurrent.{ExecutionContext, Future}
 

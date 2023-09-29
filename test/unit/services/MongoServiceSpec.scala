@@ -1,4 +1,4 @@
-package services
+package unit.services
 
 import connectors.MongoConnector
 import models.TodoModel
@@ -13,6 +13,7 @@ import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.test.Helpers.stubControllerComponents
 import play.api.test.Injecting
+import services.MongoService
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Success

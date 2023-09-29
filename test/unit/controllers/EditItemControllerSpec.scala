@@ -1,5 +1,6 @@
-package controllers
+package unit.controllers
 
+import controllers.{EditItemController, routes}
 import org.mockito.Mockito.when
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
@@ -8,7 +9,7 @@ import play.api.http.Status.OK
 import play.api.test.CSRFTokenHelper.CSRFRequest
 import play.api.test.Helpers.{GET, POST, contentAsString, defaultAwaitTimeout, redirectLocation, status, stubControllerComponents}
 import play.api.test.{FakeRequest, Injecting}
-import testUtils.TestUtils
+import unit.testUtils.TestUtils
 import views.html.{editPageView, genericErrorView}
 
 import scala.concurrent.Future

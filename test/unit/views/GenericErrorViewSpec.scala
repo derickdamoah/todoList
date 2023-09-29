@@ -1,4 +1,4 @@
-package views
+package unit.views
 
 import controllers.routes
 import models.TodoModel

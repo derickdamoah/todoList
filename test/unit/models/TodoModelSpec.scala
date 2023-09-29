@@ -1,5 +1,6 @@
-package models
+package unit.models
 
+import models.TodoModel
 import org.mongodb.scala.bson.BsonObjectId
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.wordspec.AnyWordSpecLike

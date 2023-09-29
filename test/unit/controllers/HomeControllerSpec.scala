@@ -1,6 +1,7 @@
-package controllers
+package unit.controllers
 
 import akka.stream.Materializer
+import controllers.HomeController
 import org.mockito.Mockito._
 import org.scalatestplus.mockito.MockitoSugar
 import org.scalatestplus.play._
@@ -8,7 +9,7 @@ import org.scalatestplus.play.guice._
 import play.api.test.CSRFTokenHelper._
 import play.api.test.Helpers._
 import play.api.test._
-import testUtils.TestUtils
+import unit.testUtils.TestUtils
 import views.html.homePageView
 
 import scala.concurrent.Future

@@ -1,4 +1,4 @@
-package testUtils
+package unit.testUtils
 
 import models.TodoModel
 import org.mongodb.scala.bson.BsonObjectId

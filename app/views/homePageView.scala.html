@@ -1,6 +1,8 @@
 @import views.html.components.button
 @import views.html.helper.CSRF
 @import views.html.helper.form
+@import play.api.mvc.Request
+
 @this()
 @(todoItems: Seq[TodoModel])(implicit request: Request[_], messages: Messages)
 @main("Todo List") {

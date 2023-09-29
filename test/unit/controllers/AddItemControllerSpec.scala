@@ -1,6 +1,7 @@
-package controllers
+package unit.controllers
 
 import akka.stream.Materializer
+import controllers.{AddItemController, routes}
 import org.mockito.Mockito.when
 import org.scalatestplus.mockito.MockitoSugar
 import org.scalatestplus.play.PlaySpec
@@ -9,7 +10,7 @@ import play.api.http.Status.{BAD_REQUEST, OK, SEE_OTHER}
 import play.api.test.CSRFTokenHelper.CSRFFRequestHeader
 import play.api.test.Helpers.{GET, POST, contentAsString, contentType, defaultAwaitTimeout, redirectLocation, route, status, stubControllerComponents, writeableOf_AnyContentAsEmpty}
 import play.api.test.{FakeRequest, Injecting}
-import testUtils.TestUtils
+import unit.testUtils.TestUtils
 import views.html.addItem
 
 import scala.concurrent.Future

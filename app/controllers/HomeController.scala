@@ -1,6 +1,5 @@
 package controllers
 
-import play.api._
 import play.api.i18n.I18nSupport
 import play.api.mvc._
 import services.MongoService
