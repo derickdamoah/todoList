@@ -13,10 +13,13 @@ libraryDependencies += guice
 libraryDependencies += "com.typesafe.play" %% "play" % "2.8.20" // Adjust the version as needed
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % Test
 libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "4.10.2"
-//libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.4.11"
 libraryDependencies += "org.mockito" %  "mockito-core"  % "5.4.0" % Test
 libraryDependencies += "org.scalatestplus" %% "mockito-3-12" % "3.2.10.0" % Test
 libraryDependencies += "org.jsoup" % "jsoup" % "1.16.1"
+libraryDependencies += "io.cucumber" %% "cucumber-scala" % "8.17.0" % Test
+libraryDependencies += "org.seleniumhq.selenium" % "selenium-java" % "4.13.0"
+libraryDependencies += "org.seleniumhq.selenium" % "selenium-chrome-driver" % "4.13.0"
+
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
 enablePlugins(DockerPlugin)
 enablePlugins(JavaAppPackaging)

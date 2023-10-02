@@ -20,7 +20,7 @@ class DeleteController @Inject()
   def delete(id: String): Action[AnyContent] = Action.async { implicit request =>
     mongoService.deleteTask(id).map{
       case true =>
-        logger.error(s"[DeleteController][delete] - Successfully delete item with id: $id")
+        logger.info(s"[DeleteController][delete] - Successfully delete item with id: $id")
         Redirect(routes.HomeController.home())
       case false =>
         logger.error(s"[DeleteController][delete] - Something went wrong: could not delete item with id: $id")
