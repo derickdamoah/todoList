@@ -1,6 +1,6 @@
 @import views.html.helper._
 @(route: Call, buttonTitle: String)(implicit request: Request[_], messages: Messages)
-<span class="button">
+<span class="deleteButton">
     @form(action = route) {
         @CSRF.formField
         <input type="submit" value=@buttonTitle>

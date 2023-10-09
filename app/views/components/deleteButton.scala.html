@@ -1,5 +1,4 @@
-@import views.html.helper.CSRF
-@import views.html.helper.form
+@import views.html.helper._
 @(itemId: String)(implicit request: Request[_], messages: Messages)
 <span class="addNewItem">
     @form(routes.DeleteController.delete(itemId)) {

@@ -3,31 +3,58 @@ package connectors
 import org.bson.types._
 import org.mongodb.scala.Document
 import org.mongodb.scala.model.{Filters, FindOneAndUpdateOptions, ReturnDocument}
-import org.mongodb.scala.result.DeleteResult
+import org.mongodb.scala.result.{DeleteResult, InsertOneResult}
+import play.api.mvc.ControllerComponents
 import repositories.MongoRepository
+import utils.LoggerUtil
 
 import javax.inject.Inject
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 
-class MongoConnector @Inject()(mongoRepository: MongoRepository) {
+class MongoConnector @Inject()
+(val controllerComponents: ControllerComponents,
+mongoRepository: MongoRepository) extends LoggerUtil{
 
-  def createTask(document: Document): Future[_] = {
-    mongoRepository.collection.insertOne(document).toFuture()
+  implicit val ec: ExecutionContext = controllerComponents.executionContext
+  def createTask(document: Document): Future[InsertOneResult] = {
+    mongoRepository.collection.insertOne(document).toFuture().recover{
+      case exception: Exception =>
+        logger.error(s"[MongoConnector][createTask] - an unexpected error occurred while creating a new item: ${exception.getMessage}")
+        throw new Exception(s"an unexpected error occurred while creating a new item: ${exception.getMessage}")
+    }
   }
 
   def getAllTasks: Future[Seq[Document]] = {
-    mongoRepository.collection.find().toFuture()
+    mongoRepository.collection.find().toFuture().recover{
+      case exception: Exception =>
+        logger.error(s"[MongoConnector][getAllTasks] - an unexpected error occurred, could not retrieve all items: ${exception.getMessage}")
+        throw new Exception(s"an unexpected error occurred, could not retrieve all items: ${exception.getMessage}")
+    }
   }
 
   def getOneTask(id: ObjectId): Future[Option[Document]] = {
-    mongoRepository.collection.find(Filters.equal("_id", id)).headOption()
+    mongoRepository.collection.find(Filters.equal("_id", id)).headOption().recover{
+      case e: Exception =>
+        logger.error(s"[MongoConnector][getOneTask] - an unexpected error occurred, could not retrieve item with id: $id ${e.getMessage}")
+        throw new Exception(s"an unexpected error occurred, could not retrieve item with id: $id ${e.getMessage}")
+    }
   }
 
   def updateOneTask(id: ObjectId, document: Document): Future[Document] = {
-    mongoRepository.collection.findOneAndUpdate(Filters.equal("_id", id), document, FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER)).toFuture()
+    mongoRepository.collection.findOneAndUpdate(
+      Filters.equal("_id", id), document, FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER)
+    ).toFuture().recover{
+      case e: Exception =>
+        logger.error(s"[MongoConnector][updateOneTask] - an unexpected error occurred, could not update item: ${e.getMessage}")
+        throw new Exception(s"an unexpected error occurred, could not update item: ${e.getMessage}")
+    }
   }
 
   def deleteTask(id: ObjectId): Future[DeleteResult] = {
-    mongoRepository.collection.deleteOne(Filters.equal("_id", id)).toFuture()
+    mongoRepository.collection.deleteOne(Filters.equal("_id", id)).toFuture().recover{
+      case e: Exception =>
+        logger.error(s"[MongoConnector][deleteTask] - an unexpected error occurred, could not delete item: ${e.getMessage}")
+        throw new Exception(s"an unexpected error occurred, could not delete item: ${e.getMessage}")
+    }
   }
 }

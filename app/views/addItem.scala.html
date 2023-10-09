@@ -1,17 +1,20 @@
 @import views.html.helper._
+@import views.html.components.backButton
+@import play.api.mvc.Request
+@import play.api.data.Form
+
 @this()
 @(todoForm: Form[TodoModel])(implicit request: Request[_], messages: Messages)
-@main("ToDo List") {
+@main("Add Item Page") {
     <h1>Add Item</h1>
+
     <section class="addNewItem">
-
-    <button value="Back" type="submit"><a href="@routes.HomeController.home()">Back</a></button>
-
+    @backButton.render()
     @form(action = routes.AddItemController.addItem()) {
         @CSRF.formField
         @helper.inputText(todoForm("title"))
         @helper.inputText(todoForm("description"))
-        <input type="submit" value="AddItem">
+        <input id="add-item-button" type="submit" value="Add Item">
     }
     </section>
 

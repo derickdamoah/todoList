@@ -6,7 +6,7 @@ import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, BaseController, ControllerComponents}
 import services.MongoService
 import utils.LoggerUtil
-import views.html.{editPageView, errorView}
+import views.html.{editPageView, genericErrorView}
 
 import javax.inject.Inject
 import scala.concurrent.ExecutionContext
@@ -15,7 +15,7 @@ class EditItemController @Inject()
 (val controllerComponents: ControllerComponents,
  mongoService: MongoService,
  editPage: editPageView,
- errorView: errorView
+ errorView: genericErrorView
 )  extends BaseController with I18nSupport with LoggerUtil{
   implicit val ec: ExecutionContext = controllerComponents.executionContext
 
@@ -29,7 +29,7 @@ class EditItemController @Inject()
             Ok(editPage(todoForm.fillAndValidate(value), id))
 
           case None =>
-            logger.error(s"[EditItemController][showEdit] - could not find an item with id $id")
+            logger.error(s"[EditItemController][showEdit] - could not find an item with id: $id")
             BadRequest(errorView(s"Something went wrong: could not find item with id: $id"))
         }
         }
@@ -46,10 +46,14 @@ class EditItemController @Inject()
         },
         formData => {
           mongoService.updateOneTask(id, formData.title, formData.description)
-          logger.warn(s"[EditItemController][postEdit] - successfully changed the values of the item with id: $id")
+          logger.warn(s"[EditItemController][postEdit] - successfully updated the item with id: $id")
           Redirect(routes.HomeController.home())
         }
       )
+    }.recover{
+      case exception: Exception =>
+        logger.error(s"[EditItemController][postEdit] - An unexpected error occurred while updating item with id: $id; ${exception.getMessage}")
+        InternalServerError(errorView(s"An Unexpected error occurred while u[dating item with id: $id"))
     }
 
   }
