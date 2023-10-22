@@ -7,19 +7,19 @@ pipeline {
         stage('Build') {
             steps {
                 // Add commands to build your application
-                sh 'sbt clean compile'
+                sh '/opt/sbt/bin/sbt clean compile'
             }
         }
         stage('Test') {
             steps {
                 // Add commands to run your tests
-                sh 'sbt clean coverage test coverageReport'
+                sh '/opt/sbt/bin/sbt clean coverage test coverageReport'
             }
         }
         stage('Dockerize') {
             steps {
                 // Add commands to dockerize your application
-                sh 'sbt assembly'
+                sh '/opt/sbt/bin/sbt assembly'
                 sh 'docker compose up -d'
             }
         }
