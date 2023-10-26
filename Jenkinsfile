@@ -1,31 +1,33 @@
-pipeline {
-    agent any
-    options {
-        skipStagesAfterUnstable()
-    }
-    stages {
-        stage('Build') {
-            steps {
-                // Add commands to build your application
-                sh '/opt/sbt/bin/sbt clean compile'
-            }
+ansiColor('xterm') {
+    pipeline {
+        agent any
+        options {
+            skipStagesAfterUnstable()
         }
-        stage('Test') {
-            steps {
-                // Add commands to run your tests
-                sh '/opt/sbt/bin/sbt clean coverage test coverageReport'
+        stages {
+            stage('Build') {
+                steps {
+                    // Add commands to build your application
+                    sh '/opt/sbt/bin/sbt clean compile'
+                }
             }
-        }
-        stage('Dockerize') {
-            steps {
-                // Add commands to dockerize your application
-                sh '/opt/sbt/bin/sbt assembly'
-                sh 'docker compose up -d'
+            stage('Test') {
+                steps {
+                    // Add commands to run your tests
+                    sh '/opt/sbt/bin/sbt clean coverage test coverageReport'
+                }
             }
-        }
-        stage('Deploy') {
-            steps {
-            sh 'echo "Deploying"'
+            stage('Dockerize') {
+                steps {
+                    // Add commands to dockerize your application
+                    sh '/opt/sbt/bin/sbt assembly'
+                    sh 'docker compose up -d'
+                }
+            }
+            stage('Deploy') {
+                steps {
+                sh 'echo "Deploying"'
+                }
             }
         }
     }
