@@ -8,7 +8,11 @@ pipeline {
         stage('Build') {
             steps {
                 // Add commands to build your application
-                sh '/opt/sbt/bin/sbt clean compile'
+                sh '''
+                /opt/sbt/bin/sbt clean compile
+                /opt/sbt/bin/sbt assembly
+                docker compose up -d
+                '''
             }
         }
         stage('Test') {
