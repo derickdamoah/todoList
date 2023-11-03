@@ -11,6 +11,11 @@ WORKDIR /app
 
 #COPY scala-library-2.13.11.jar /app
 
+# Install sbt (if not already installed)
+RUN apk update && apk add bash
+RUN wget https://github.com/sbt/sbt/releases/download/v1.9.3/sbt-1.9.3.tgz
+RUN tar -xvzf sbt-1.9.3.tgz
+
 # Copy the JAR file into the container
 COPY toDo-list-assembly-1.0-SNAPSHOT.jar /app
 
