@@ -15,6 +15,7 @@ pipeline {
             steps {
                 // Add commands to dockerize your application
                 sh '/opt/sbt/bin/sbt assembly'
+                sh 'colima start'
                 sh 'docker compose up -d'
             }
         }
