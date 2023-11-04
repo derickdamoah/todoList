@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // Add commands to dockerize your application
                 sh '/opt/sbt/bin/sbt assembly'
-                sh 'docker-compose up -d'
+                sh 'sudo docker-compose up -d'
             }
         }
         stage('Test') {
