@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // Add commands to dockerize your application
                 sh '/opt/sbt/bin/sbt assembly'
-                sh 'docker compose up -d'
+                sh 'docker-compose up -d'
             }
         }
         stage('Test') {
@@ -33,8 +33,8 @@ pipeline {
     }
     post {
         always {
-            sh 'docker compose down --volume'
-            sh 'docker compose ps'
+            sh 'docker-compose down --volume'
+            sh 'docker-compose ps'
         }
     }
 }
