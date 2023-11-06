@@ -26,7 +26,7 @@ pipeline {
         }
 
         stage('Acceptance Tests') {
-            step{
+            steps{
                 dir('acceptance-tests'){
                     git branch: "main"
                     credentialsId: 'github_ssh_private_key'
@@ -37,7 +37,7 @@ pipeline {
         }
 
         stage('Performance Tests') {
-            step{
+            steps{
                 dir('performance-tests'){
                     git branch: "main"
                     credentialsId: 'github_ssh_private_key'
