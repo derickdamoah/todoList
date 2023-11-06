@@ -18,12 +18,35 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
-        stage('Test') {
+        stage('Unit Tests') {
             steps {
                 // Add commands to run your tests
                 sh '/opt/sbt/bin/sbt clean coverage test coverageReport'
             }
         }
+
+        stage('Acceptance Tests') {
+            step{
+                dir('acceptance-tests'){
+                    git branch: "main"
+                    credentialsId: 'github_ssh_private_key'
+                    url: 'git@github.com:derickdamoah/todo-acceptance-tests.git'
+                    sh 'bash run-todo-journey-tests.sh'
+                }
+            }
+        }
+
+        stage('Performance Tests') {
+            step{
+                dir('performance-tests'){
+                    git branch: "main"
+                    credentialsId: 'github_ssh_private_key'
+                    url: 'git@github.com:derickdamoah/todo-performance-tests.git'
+                    sh '/opt/sbt/bin/sbt "gatling:test"'
+                }
+            }
+        }
+
 
         stage('Deploy') {
             steps {
