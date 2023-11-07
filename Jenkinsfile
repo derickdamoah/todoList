@@ -29,7 +29,7 @@ pipeline {
             steps{
                 dir('acceptance-tests'){
                     git url: 'git@github.com:derickdamoah/todo-acceptance-tests.git', branch: 'main', credentialsId: 'github_ssh_private_key'
-                    sh '/opt/sbt/bin/sbt 'testOnly acceptance.suites.RunTodoListSuite''
+                    sh '/opt/sbt/bin/sbt \'testOnly acceptance.suites.RunTodoListSuite\''
                 }
             }
         }
