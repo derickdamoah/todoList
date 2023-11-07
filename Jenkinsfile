@@ -28,8 +28,7 @@ pipeline {
         stage('Acceptance Tests') {
             steps{
                 dir('acceptance-tests'){
-                    git branch: "main"
-                    git url: 'git@github.com:derickdamoah/todo-acceptance-tests.git', credentialsId: 'github_ssh_private_key'
+                    git url: 'git@github.com:derickdamoah/todo-acceptance-tests.git', branch: 'main', credentialsId: 'github_ssh_private_key'
                     sh 'bash run-todo-journey-tests.sh'
                 }
             }
@@ -38,8 +37,7 @@ pipeline {
         stage('Performance Tests') {
             steps{
                 dir('performance-tests'){
-                    git branch: "main"
-                    git url: 'git@github.com:derickdamoah/todo-performance-tests.git', credentialsId: 'github_ssh_private_key'
+                    git url: 'git@github.com:derickdamoah/todo-performance-tests.git', branch: 'main', credentialsId: 'github_ssh_private_key'
                     sh '/opt/sbt/bin/sbt "gatling:test"'
                 }
             }
