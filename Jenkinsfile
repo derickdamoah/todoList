@@ -46,7 +46,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-            sh '/home/linuxbrew/.linuxbrew/bin/copilot deploy'
+            sh '/home/linuxbrew/.linuxbrew/bin/copilot init --app todo-list --name todo --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy'
             }
         }
     }
