@@ -1,5 +1,5 @@
 version: '1.0'
-
+x-aws-vpc: "vpc-0440231913e013555"
 services:
   app:
     build:
