@@ -46,7 +46,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-            sh 'copilot deploy'
+            sh '/home/linuxbrew/.linuxbrew/bin/copilot deploy'
             }
         }
     }
