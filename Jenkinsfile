@@ -27,7 +27,7 @@ pipeline {
 
         stage('Acceptance Tests') {
             steps{
-                dir('acceptance-tests'){
+                dir('acceptance-tests') {
                     git url: 'git@github.com:derickdamoah/todo-acceptance-tests.git', branch: 'main', credentialsId: 'github_ssh_private_key'
                     sh '/opt/sbt/bin/sbt -Daccessibility.audit=true -Daccessibility.htmlvalidator=false -Dbrowser=chrome -Denvironment=local \'testOnly acceptance.suites.RunTodoListSuite\''
                 }
@@ -46,13 +46,13 @@ pipeline {
 
         stage('Deploy') {
             steps {
-            sh 'echo "Deploying"'
+            sh 'copilot deploy'
             }
         }
     }
     post {
         always {
-            sh 'docker-compose down --volume'
+            sh 'docker-compose down --volumes'
             sh 'docker-compose ps'
         }
     }
