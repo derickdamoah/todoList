@@ -20,6 +20,8 @@ http:
 cpu: 1024
 memory: 2048
 exec: true
+storage:
+  ephemeral: 10
 
 environments: staging
 
