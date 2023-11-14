@@ -16,11 +16,7 @@ image:
 
 http:
   path: '/'
-  alias: 'todo-list-app.com'
 
 cpu: 1024
 memory: 2048
 exec: true
-
-variables:
-  LOG_LEVEL: info
