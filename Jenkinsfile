@@ -49,7 +49,7 @@ pipeline {
             sh 'aws configure list'
             sh '''
                 export AWS_REGION=us-east-1
-                /home/linuxbrew/.linuxbrew/bin/copilot init --app todo-list --name todo --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy
+                /home/linuxbrew/.linuxbrew/bin/copilot init --app todo-list --name todo --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy --yes
             '''
             }
         }
