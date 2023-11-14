@@ -20,3 +20,8 @@ http:
 cpu: 1024
 memory: 2048
 exec: true
+
+environments: staging
+
+variables:
+  LOG_LEVEL: info
