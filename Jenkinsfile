@@ -49,7 +49,7 @@ pipeline {
             sh 'aws configure list'
             sh'''
                 export AWS_REGION=us-east-1
-                /home/linuxbrew/.linuxbrew/bin/copilot app init todo-list-app
+                /home/linuxbrew/.linuxbrew/bin/copilot app init todo-list
                 /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --default-config --profile default
                 /home/linuxbrew/.linuxbrew/bin/copilot env deploy --name test
                 /home/linuxbrew/.linuxbrew/bin/copilot svc deploy --name todo
