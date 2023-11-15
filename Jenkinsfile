@@ -47,7 +47,7 @@ pipeline {
         stage('Deploy') {
             steps {
             sh 'aws configure list'
-            sh 'copilot init --app todo --name todo-list --type "Request-Driven Web Service" --dockerfile "./Dockerfile" --deploy'
+            sh '/home/linuxbrew/.linuxbrew/bin/copilot init --app todo --name todo-list --type "Request-Driven Web Service" --dockerfile "./Dockerfile" --deploy'
             }
         }
     }
