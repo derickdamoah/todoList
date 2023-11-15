@@ -47,7 +47,11 @@ pipeline {
         stage('Deploy') {
             steps {
             sh 'aws configure list'
-            sh '/home/linuxbrew/.linuxbrew/bin/copilot init --app todo --name todo-list --type "Request-Driven Web Service" --dockerfile "./Dockerfile" --deploy'
+            sh '''
+                export AWS_REGION=us-east-1
+                /home/linuxbrew/.linuxbrew/bin/copilot init --app todo --name todo-list --type "Request-Driven Web Service" --dockerfile "./Dockerfile" --deploy
+            '''
+
             }
         }
     }
