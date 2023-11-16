@@ -5,7 +5,7 @@
 # Your service name will be used in naming your resources like log groups, App Runner services, etc.
 name: todo-list
 # The "architecture" of the service you're running.
-type: Request-Driven Web Service
+type: Load Balanced Web Service
 
 image:
   # Docker build arguments.
