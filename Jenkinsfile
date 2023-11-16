@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment {
+        AWS_ACCESS_KEY_ID     = credentials('your-aws-access-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('your-aws-secret-access-key')
+        AWS_DEFAULT_REGION    = 'us-east-1'
+    }
     options {
         skipStagesAfterUnstable()
         ansiColor('xterm')
