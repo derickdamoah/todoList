@@ -1,7 +1,7 @@
 pipeline {
     agent any
       environment {
-        AWS_CREDS = credentials('aws_access_keys_credentials')
+        AWS_REGION=us-east-1
       }
     options {
         skipStagesAfterUnstable()
@@ -51,7 +51,6 @@ pipeline {
             steps {
             sh 'aws configure list'
             sh '''
-                export AWS_REGION=us-east-1
                 /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --profile default --default-config
                 /home/linuxbrew/.linuxbrew/bin/copilot init --app todo-list --name todo-list --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy
             '''
