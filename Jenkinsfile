@@ -54,7 +54,6 @@ pipeline {
                 ]]){
                     sh '''
                         export AWS_REGION='us-east-1'
-                        /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --profile default --default-config
                         /home/linuxbrew/.linuxbrew/bin/copilot init --app todo-list --name todo-list --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy
                     '''
                 }
