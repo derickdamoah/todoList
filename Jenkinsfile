@@ -54,9 +54,9 @@ pipeline {
             steps {
             sh 'aws configure list'
             sh '''
-                export AWS_REGION=AWS_DEFAULT_REGION
-                export AWS_ACCESS_KEY_ID=ACCESS_KEY_ID
-                export AWS_SECRET_ACCESS_KEY=AWS_SECRET_KEY
+                export AWS_REGION=${AWS_DEFAULT_REGION}
+                export AWS_ACCESS_KEY_ID=${ACCESS_KEY_ID}
+                export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_KEY}
                 /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --profile default --default-config
                 /home/linuxbrew/.linuxbrew/bin/copilot init --app todo-list --name todo-list --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy
             '''
