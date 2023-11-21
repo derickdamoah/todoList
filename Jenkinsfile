@@ -54,6 +54,8 @@ pipeline {
                 ]]){
                     sh '''
                         export AWS_REGION='us-east-1'
+                        export AWS_ACCESS_KEY_ID = accessKeyVariable
+                        export AWS_SECRET_ACCESS_KEY = secretKeyVariable
                         /home/linuxbrew/.linuxbrew/bin/copilot storage init -t S3 -n todo-list-bucket -w todo -l environment
                         /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --profile jenkins --default-config
                         /home/linuxbrew/.linuxbrew/bin/copilot init --app todo-list --name todo-list --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy
