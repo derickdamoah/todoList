@@ -20,7 +20,7 @@ RUN tar -xvzf sbt-1.9.3.tgz
 COPY toDo-list-assembly-1.0-SNAPSHOT.jar /app
 
 # Expose the port your application listens on (if needed)
-EXPOSE 9000
+EXPOSE 5000
 
 # Define the command to run your application
 #ENTRYPOINT ["java", "-cp", "toDo-list-assembly-1.0-SNAPSHOT.jar", "Main"]

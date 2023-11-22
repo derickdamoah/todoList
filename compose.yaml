@@ -8,7 +8,7 @@ services:
     links:
       - todo-database
     ports:
-      - "3000:9000"  # Map host port 9000 to container port 9000
+      - "3000:5000"  # Map host port 9000 to container port 9000
 
 
   todo-database:
