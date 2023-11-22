@@ -52,6 +52,7 @@ pipeline {
                     /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --profile default --default-config
                     /home/linuxbrew/.linuxbrew/bin/copilot env --name test deploy
                     /home/linuxbrew/.linuxbrew/bin/copilot init --app test-app --name test-app --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy
+                    expect "Which environment would you like to deploy to?  [Use arrows to move, type to filter, ? for more help]" { send "\n" }
                 '''
             }
         }
