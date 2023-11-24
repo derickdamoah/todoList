@@ -9,7 +9,7 @@ class MongoRepository {
   private val connection_string: String = mongodbconfig.getString("connectionString")
   private val database_name: String = mongodbconfig.getString("database")
   private val collection_name: String = mongodbconfig.getString("collection")
-
+  println(Console.GREEN + ConfigFactory.load().getString("mongoDbUserName") + Console.RESET)
   lazy val mongoClient: MongoClient = MongoClient(connection_string)
 
   val database: MongoDatabase = mongoClient.getDatabase(database_name)

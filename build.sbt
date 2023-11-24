@@ -30,6 +30,7 @@ libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "4.10.2"
 libraryDependencies += "org.mockito" %  "mockito-core"  % "5.4.0" % Test
 libraryDependencies += "org.scalatestplus" %% "mockito-3-12" % "3.2.10.0" % Test
 libraryDependencies += "org.jsoup" % "jsoup" % "1.16.1"
+libraryDependencies += "io.github.cdimascio" % "dotenv-java" % "3.0.0"
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
 enablePlugins(DockerPlugin)
 enablePlugins(JavaAppPackaging)
