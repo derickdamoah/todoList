@@ -5,18 +5,11 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    links:
-      - todo-database
     ports:
       - "3000:9000"  # Map host port 9000 to container port 9000
-
-
-  todo-database:
-    image: mongo:6
     volumes:
       - database:/data/db  # Mount a volume for MongoDB data storage
-    ports:
-      - "27017:27017"  # Map host port 27017 to container port 27017
+    env_file: .env
 
 volumes:
   database:  # Define a named volume for MongoDB data storage

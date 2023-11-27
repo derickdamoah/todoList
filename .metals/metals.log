@@ -1,0 +1,299 @@
+2023.11.24 00:56:58 INFO  Started: Metals version 1.0.1 in folders '/Users/derickdamoahtwum/Desktop/projects/todoList' for client Visual Studio Code 1.81.1.
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.21.2 by Redgate
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.FlywayExecutor execute
+INFO: Database: jdbc:h2:file:/Users/derickdamoahtwum/Desktop/projects/todoList/.metals/metals (H2 2.1)
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory allAppliedMigrations
+INFO: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.006s)
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+INFO: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": << Empty Schema >>
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "1 - Create tables"
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "2 - Server discovery"
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "3 - Jar symbols"
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "4 - Fingerprints"
+Nov 24, 2023 12:56:58 AM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Successfully applied 4 migrations to schema "PUBLIC", now at version v4 (execution time 00:00.007s)
+2023.11.24 00:56:58 INFO  time: initialize in 0.29s
+2023.11.24 00:56:59 WARN  Build server is not auto-connectable.
+2023.11.24 00:57:20 INFO  running '/opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home/bin/java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar /var/folders/w5/cdg9wg953gq3p_xv3k0b8mgm0000gn/T/metals164904221301321669/sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'
+2023.11.24 00:57:20 WARN  no build target for: /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/metals.sbt
+2023.11.24 00:57:20 WARN  no build target for: /Users/derickdamoahtwum/Desktop/projects/todoList/project/metals.sbt
+2023.11.24 00:57:20 INFO  skipping build import with status 'Started'
+2023.11.24 00:57:21 INFO  [info] welcome to sbt 1.9.3 (Homebrew Java 11.0.20)
+2023.11.24 00:57:21 INFO  [info] loading settings for project todolist-build-build-build from metals.sbt ...
+2023.11.24 00:57:22 INFO  [info] loading project definition from /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/project
+2023.11.24 00:57:24 INFO  [info] loading settings for project todolist-build-build from metals.sbt ...
+2023.11.24 00:57:24 INFO  [info] loading project definition from /Users/derickdamoahtwum/Desktop/projects/todoList/project/project
+2023.11.24 00:57:26 INFO  [success] Generated .bloop/todolist-build-build.json
+2023.11.24 00:57:26 INFO  [success] Total time: 2 s, completed 24 Nov 2023, 00:57:26
+2023.11.24 00:57:26 INFO  [info] loading settings for project todolist-build from metals.sbt,plugins.sbt ...
+2023.11.24 00:57:26 INFO  [info] loading project definition from /Users/derickdamoahtwum/Desktop/projects/todoList/project
+2023.11.24 00:57:30 INFO  no build target found for /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/metals.sbt. Using presentation compiler with project's scala-library version: 3.3.0
+Nov 24, 2023 12:57:33 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2023.11.24 00:57:34 INFO  [success] Generated .bloop/todolist-build.json
+2023.11.24 00:57:34 INFO  [success] Total time: 7 s, completed 24 Nov 2023, 00:57:34
+2023.11.24 00:57:37 INFO  [info] loading settings for project root from build.sbt ...
+2023.11.24 00:57:37 INFO  [info]   __              __
+2023.11.24 00:57:37 INFO  [info]   \ \     ____   / /____ _ __  __
+2023.11.24 00:57:37 INFO  [info]    \ \   / __ \ / // __ `// / / /
+2023.11.24 00:57:37 INFO  [info]    / /  / /_/ // // /_/ // /_/ /
+2023.11.24 00:57:37 INFO  [info]   /_/  / .___//_/ \__,_/ \__, /
+2023.11.24 00:57:37 INFO  [info]       /_/               /____/
+2023.11.24 00:57:37 INFO  [info] 
+2023.11.24 00:57:37 INFO  [info] Version 2.8.20 running Java 11.0.20
+2023.11.24 00:57:37 INFO  [info] 
+2023.11.24 00:57:37 INFO  [info] Play is run entirely by the community. Please consider contributing and/or donating:
+2023.11.24 00:57:37 INFO  [info] https://www.playframework.com/sponsors
+2023.11.24 00:57:37 INFO  [info] 
+2023.11.24 00:57:38 INFO  [success] Generated .bloop/root.json
+2023.11.24 00:57:38 INFO  [success] Generated .bloop/root-test.json
+2023.11.24 00:57:38 INFO  [success] Generated .bloop/root-it.json
+2023.11.24 00:57:38 INFO  [success] Total time: 1 s, completed 24 Nov 2023, 00:57:38
+2023.11.24 00:57:38 INFO  time: ran 'sbt bloopInstall' in 18s
+2023.11.24 00:57:38 INFO  Attempting to connect to the build server...
+2023.11.24 00:57:38 INFO  Setting up current java home /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home in /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:57:46 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:57:51 INFO  Attempting to connect to the build server...
+2023.11.24 00:57:51 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:57:51 INFO  Attempting to connect to the build server...
+2023.11.24 00:57:51 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:57:51 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:57:51 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:57:53 INFO  time: Connected to build server in 15s
+2023.11.24 00:57:53 INFO  Connected to Build server: Bloop v1.5.8
+2023.11.24 00:57:53 INFO  time: Imported build in 0.1s
+2023.11.24 00:57:59 INFO  time: indexed workspace in 5.89s
+2023.11.24 00:58:28 INFO  Shutting down server
+2023.11.24 00:58:28 INFO  shutting down Metals
+2023.11.24 00:58:28 INFO  Shut down connection with build server.
+2023.11.24 00:58:28 INFO  Shut down connection with build server.
+2023.11.24 00:58:28 INFO  Shut down connection with build server.
+2023.11.24 00:58:28 INFO  Exiting server
+2023.11.24 00:58:37 INFO  Started: Metals version 1.1.0 in folders '/Users/derickdamoahtwum/Desktop/projects/todoList' for client Visual Studio Code 1.81.1.
+2023.11.24 00:58:38 INFO  Attempting to connect to the build server...
+2023.11.24 00:58:38 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:58:38 INFO  skipping build import with status 'Installed'
+2023.11.24 00:58:38 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:58:41 INFO  Attempting to connect to the build server...
+2023.11.24 00:58:41 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:58:41 INFO  Attempting to connect to the build server...
+2023.11.24 00:58:41 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:58:41 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:58:41 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:58:43 INFO  time: Connected to build server in 4.96s
+2023.11.24 00:58:43 INFO  Connected to Build server: Bloop v1.5.8
+2023.11.24 00:58:48 INFO  time: indexed workspace in 4.84s
+2023.11.24 00:59:10 INFO  Disconnecting from Bloop session...
+2023.11.24 00:59:12 ERROR timeout: build server 'bloop' during shutdown
+2023.11.24 00:59:12 ERROR timeout: build server 'bloop' during shutdown
+2023.11.24 00:59:12 ERROR timeout: build server 'bloop' during shutdown
+2023.11.24 00:59:12 INFO  Attempting to connect to the build server...
+2023.11.24 00:59:12 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:59:14 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:59:14 INFO  Attempting to connect to the build server...
+2023.11.24 00:59:14 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:59:14 INFO  Attempting to connect to the build server...
+2023.11.24 00:59:14 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.24 00:59:14 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:59:14 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.24 00:59:14 INFO  time: Connected to build server in 2.1s
+2023.11.24 00:59:14 INFO  Connected to Build server: Bloop v1.5.11
+2023.11.24 00:59:15 INFO  time: indexed workspace in 1.29s
+Nov 24, 2023 12:59:21 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2023.11.24 01:01:36 INFO  compiling root (26 scala sources and 1 java source)
+2023.11.24 01:01:44 INFO  time: compiled root in 8.27s
+2023.11.24 01:01:59 INFO  skipping build import with status 'Installed'
+2023.11.24 01:01:59 WARN  no build target for: /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/metals.sbt
+2023.11.24 01:02:01 INFO  skipping build import with status 'Installed'
+2023.11.24 01:07:17 INFO  compiling root (1 scala source)
+2023.11.24 01:07:17 INFO  time: compiled root in 0.46s
+2023.11.24 01:07:59 INFO  compiling root (1 scala source)
+2023.11.24 01:07:59 INFO  time: compiled root in 0.7s
+Nov 24, 2023 1:08:35 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2023.11.24 01:13:59 INFO  compiling root (1 scala source)
+2023.11.24 01:14:01 INFO  time: compiled root in 2.2s
+2023.11.24 01:18:19 INFO  compiling root (1 scala source)
+2023.11.24 01:18:19 INFO  time: compiled root in 0.71s
+2023.11.24 01:18:23 INFO  compiling root (1 scala source)
+2023.11.24 01:18:23 INFO  time: compiled root in 0.4s
+2023.11.24 01:19:02 INFO  compiling root (1 scala source)
+2023.11.24 01:19:02 INFO  time: compiled root in 0.44s
+2023.11.24 01:19:49 INFO  compiling root (1 scala source)
+2023.11.24 01:19:49 INFO  time: compiled root in 0.37s
+2023.11.24 01:20:42 INFO  compiling root (1 scala source)
+2023.11.24 01:20:42 INFO  time: compiled root in 0.13s
+2023.11.24 01:20:58 INFO  compiling root (1 scala source)
+2023.11.24 01:20:58 INFO  time: compiled root in 0.53s
+2023.11.24 01:21:01 INFO  compiling root (1 scala source)
+2023.11.24 01:21:01 INFO  time: compiled root in 0.12s
+2023.11.24 01:21:04 INFO  compiling root (1 scala source)
+2023.11.24 01:21:04 INFO  time: compiled root in 52ms
+2023.11.24 01:21:06 INFO  compiling root (1 scala source)
+2023.11.24 01:21:06 INFO  time: compiled root in 0.36s
+2023.11.24 01:21:17 INFO  compiling root (1 scala source)
+2023.11.24 01:21:17 INFO  time: compiled root in 0.39s
+2023.11.24 01:21:35 INFO  compiling root (1 scala source)
+2023.11.24 01:21:35 INFO  time: compiled root in 0.34s
+2023.11.24 01:21:37 INFO  compiling root (1 scala source)
+2023.11.24 01:21:37 INFO  time: compiled root in 0.29s
+2023.11.24 01:21:38 INFO  compiling root (1 scala source)
+2023.11.24 01:21:38 INFO  time: compiled root in 0.23s
+2023.11.24 01:21:41 INFO  compiling root (1 scala source)
+2023.11.24 01:21:41 INFO  time: compiled root in 0.4s
+2023.11.24 01:23:36 INFO  compiling root (1 scala source)
+2023.11.24 01:23:36 INFO  time: compiled root in 0.34s
+Nov 24, 2023 1:30:31 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 376
+2023.11.24 01:31:06 INFO  compiling root (1 scala source)
+2023.11.24 01:31:07 INFO  time: compiled root in 1.21s
+2023.11.24 01:31:07 INFO  compiling root (1 scala source)
+2023.11.24 01:31:08 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:07 INFO  time: compiled root in 74ms
+2023.11.24 01:31:08 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:10 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:11 INFO  compiling root (1 scala source)
+2023.11.24 01:31:11 INFO  time: compiled root in 0.25s
+2023.11.24 01:31:12 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:12 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:13 INFO  compiling root (1 scala source)
+2023.11.24 01:31:13 INFO  time: compiled root in 90ms
+2023.11.24 01:31:14 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:14 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:15 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:16 INFO  compiling root (1 scala source)
+2023.11.24 01:31:16 INFO  time: compiled root in 0.14s
+2023.11.24 01:31:16 WARN  Could not load snapshot text for /Users/derickdamoahtwum/Desktop/projects/todoList/app/repositories/MongoRepository.scala
+2023.11.24 01:31:17 INFO  compiling root (1 scala source)
+2023.11.24 01:31:17 INFO  time: compiled root in 0.35s
+2023.11.24 01:31:20 INFO  compiling root (1 scala source)
+2023.11.24 01:31:20 INFO  time: compiled root in 66ms
+2023.11.24 01:31:22 INFO  compiling root (1 scala source)
+2023.11.24 01:31:22 INFO  time: compiled root in 69ms
+2023.11.24 01:31:25 INFO  compiling root (1 scala source)
+2023.11.24 01:31:25 INFO  time: compiled root in 0.49s
+2023.11.24 01:31:28 INFO  compiling root (1 scala source)
+2023.11.24 01:31:28 INFO  time: compiled root in 0.33s
+2023.11.24 01:31:29 INFO  compiling root (1 scala source)
+2023.11.24 01:31:29 INFO  time: compiled root in 0.27s
+2023.11.24 01:31:32 INFO  compiling root (1 scala source)
+2023.11.24 01:31:32 INFO  time: compiled root in 94ms
+2023.11.24 01:31:40 INFO  compiling root (1 scala source)
+2023.11.24 01:31:40 INFO  time: compiled root in 85ms
+2023.11.24 01:31:44 INFO  compiling root (1 scala source)
+2023.11.24 01:31:44 INFO  time: compiled root in 59ms
+2023.11.24 01:31:44 INFO  compiling root (1 scala source)
+2023.11.24 01:31:45 INFO  time: compiled root in 56ms
+2023.11.24 01:31:51 INFO  compiling root (1 scala source)
+2023.11.24 01:31:51 INFO  time: compiled root in 79ms
+2023.11.24 01:31:53 INFO  compiling root (1 scala source)
+2023.11.24 01:31:53 INFO  time: compiled root in 57ms
+2023.11.24 01:31:56 INFO  compiling root (1 scala source)
+2023.11.24 01:31:56 INFO  time: compiled root in 0.38s
+2023.11.24 01:34:15 INFO  compiling root (1 scala source)
+2023.11.24 01:34:15 INFO  time: compiled root in 0.4s
+2023.11.24 01:34:19 INFO  compiling root (1 scala source)
+2023.11.24 01:34:19 INFO  time: compiled root in 0.12s
+2023.11.24 01:34:35 INFO  compiling root (1 scala source)
+2023.11.24 01:34:35 INFO  time: compiled root in 0.1s
+2023.11.24 01:34:39 INFO  compiling root (1 scala source)
+2023.11.24 01:34:39 INFO  time: compiled root in 60ms
+2023.11.24 01:34:49 INFO  compiling root (1 scala source)
+2023.11.24 01:34:49 INFO  time: compiled root in 0.11s
+2023.11.24 01:34:56 INFO  compiling root (1 scala source)
+2023.11.24 01:34:56 INFO  time: compiled root in 0.12s
+2023.11.24 01:35:09 INFO  compiling root (1 scala source)
+2023.11.24 01:35:09 INFO  time: compiled root in 85ms
+2023.11.24 01:35:19 INFO  compiling root (1 scala source)
+2023.11.24 01:35:19 INFO  time: compiled root in 0.33s
+2023.11.24 01:36:08 INFO  compiling root (1 scala source)
+2023.11.24 01:36:08 INFO  time: compiled root in 0.36s
+2023.11.24 01:47:48 INFO  Shutting down server
+2023.11.24 01:47:48 INFO  shutting down Metals
+2023.11.24 01:47:48 INFO  Shut down connection with build server.
+2023.11.24 01:47:48 INFO  Shut down connection with build server.
+2023.11.24 01:47:48 INFO  Shut down connection with build server.
+2023.11.24 01:47:48 INFO  Exiting server
+2023.11.27 22:42:37 INFO  Started: Metals version 1.1.0 in folders '/Users/derickdamoahtwum/Desktop/projects/todoList' for client Visual Studio Code 1.84.2.
+2023.11.27 22:42:38 INFO  Attempting to connect to the build server...
+2023.11.27 22:42:38 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.27 22:42:38 INFO  skipping build import with status 'Installed'
+2023.11.27 22:42:41 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.27 22:42:41 INFO  Attempting to connect to the build server...
+2023.11.27 22:42:41 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.27 22:42:41 INFO  Attempting to connect to the build server...
+2023.11.27 22:42:41 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.27 22:42:41 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.27 22:42:41 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.27 22:42:41 INFO  time: Connected to build server in 3.34s
+2023.11.27 22:42:41 INFO  Connected to Build server: Bloop v1.5.11
+2023.11.27 22:42:41 INFO  time: Imported build in 0.23s
+2023.11.27 22:42:47 INFO  time: indexed workspace in 6.22s
+2023.11.27 22:47:51 WARN  no build target for: /Users/derickdamoahtwum/Desktop/projects/todoList/build.sc
+2023.11.27 22:48:42 WARN  no build target for: /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/metals.sbt
+2023.11.27 22:48:59 INFO  skipping build import with status 'Installed'
+2023.11.27 22:49:00 INFO  Deduplicating compilation of root from bsp client 'Metals 1.1.0' (since 6m 19.235s)
+2023.11.27 22:49:00 INFO  compiling root-test (15 scala sources)
+2023.11.27 22:49:05 INFO  compiling root-it (15 scala sources)
+2023.11.27 22:49:05 INFO  time: compiled root-test in 4.33s
+2023.11.27 22:49:06 INFO  time: compiled root-it in 1.39s
+Nov 27, 2023 10:50:10 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2023.11.27 22:50:47 INFO  compiling root (1 scala source)
+2023.11.27 22:50:47 INFO  time: compiled root in 0.71s
+2023.11.27 22:50:56 INFO  compiling root (1 scala source)
+2023.11.27 22:50:56 INFO  time: compiled root in 0.38s
+2023.11.27 22:50:58 INFO  compiling root (1 scala source)
+2023.11.27 22:50:58 INFO  time: compiled root in 0.3s
+2023.11.27 22:51:05 INFO  compiling root (1 scala source)
+2023.11.27 22:51:05 INFO  time: compiled root in 0.36s
+Nov 27, 2023 10:51:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 85
+2023.11.27 22:52:57 INFO  compiling root (1 scala source)
+2023.11.27 22:52:57 INFO  time: compiled root in 0.41s
+2023.11.27 22:53:01 INFO  compiling root (1 scala source)
+2023.11.27 22:53:01 INFO  time: compiled root in 0.45s
+Nov 27, 2023 10:53:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 160
+2023.11.27 22:53:15 INFO  compiling root (1 scala source)
+2023.11.27 22:53:15 INFO  time: compiled root in 0.39s
+Nov 27, 2023 10:53:33 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 27, 2023 10:53:37 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 27, 2023 10:53:40 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 27, 2023 10:58:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 223
+Nov 27, 2023 11:00:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 235
+Nov 27, 2023 11:03:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 379
+2023.11.27 23:06:22 INFO  compiling root (1 scala source)
+2023.11.27 23:06:22 INFO  time: compiled root in 0.65s
+2023.11.27 23:06:23 INFO  compiling root (1 scala source)
+2023.11.27 23:06:23 INFO  time: compiled root in 0.41s
+2023.11.27 23:06:24 INFO  compiling root (1 scala source)
+2023.11.27 23:06:24 INFO  time: compiled root in 31ms
+2023.11.27 23:06:27 INFO  compiling root (1 scala source)
+2023.11.27 23:06:27 INFO  time: compiled root in 53ms
+2023.11.27 23:06:28 INFO  compiling root (1 scala source)
+2023.11.27 23:06:28 INFO  time: compiled root in 0.29s
+2023.11.27 23:07:23 INFO  compiling root (1 scala source)
+2023.11.27 23:07:23 INFO  time: compiled root in 0.51s
+2023.11.27 23:07:44 INFO  compiling root (1 scala source)
+2023.11.27 23:07:44 INFO  time: compiled root in 0.46s

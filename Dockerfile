@@ -1,11 +1,5 @@
 FROM amazoncorretto:11.0.20-alpine3.17
 
-# Set environment variables for your application
-#ENV MONGO_HOST=localhost
-#ENV MONGO_PORT=27017
-#ENV MONGO_DB=todo-database
-#ENV APPLICATION_SECRET=very-secret-password-2023
-
 # Set the working directory inside the container
 WORKDIR /app
 

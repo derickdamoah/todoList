@@ -2,14 +2,14 @@ package repositories
 
 import com.typesafe.config.ConfigFactory
 import org.mongodb.scala._
+import io.github.cdimascio.dotenv.Dotenv
 
 class MongoRepository {
   val mongodbconfig = ConfigFactory.load().getConfig("mongodb")
-
-  private val connection_string: String = mongodbconfig.getString("connectionString")
+  private val dotenv = Dotenv.configure().ignoreIfMissing().load()
+  private val connection_string: String = s"mongodb+srv://${dotenv.get("MONGO_DB_USERNAME")}:${dotenv.get("MONGO_DB_PASSWORD")}@todo-list-cluster.elkwww6.mongodb.net/?retryWrites=true&w=majority"
   private val database_name: String = mongodbconfig.getString("database")
   private val collection_name: String = mongodbconfig.getString("collection")
-  println(Console.GREEN + ConfigFactory.load().getString("mongoDbUserName") + Console.RESET)
   lazy val mongoClient: MongoClient = MongoClient(connection_string)
 
   val database: MongoDatabase = mongoClient.getDatabase(database_name)
