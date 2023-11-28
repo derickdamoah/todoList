@@ -48,6 +48,7 @@ pipeline {
             steps {
                 sh '''
                     docker-compose exec app bash -c 'echo $MONGO_DB_USERNAME $MONGO_DB_PASSWORD'
+                    printenv
                     export AWS_REGION='us-east-1'
                     aws configure list
                     /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --profile default --default-config
