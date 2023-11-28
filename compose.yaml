@@ -11,6 +11,13 @@ services:
       - database:/data/db  # Mount a volume for MongoDB data storage
     env_file: .env
 
+  todo-database:
+    image: mongo:6
+    volumes:
+      - database:/data/db  # Mount a volume for MongoDB data storage
+    ports:
+      - "27017:27017"  # Map host port 27017 to container port 27017
+
 volumes:
   database:  # Define a named volume for MongoDB data storage
 
