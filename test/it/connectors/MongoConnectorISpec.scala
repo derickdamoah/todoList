@@ -3,8 +3,8 @@ package it.connectors
 import connectors.MongoConnector
 import org.bson.types.ObjectId
 import org.mongodb.scala.Document
-import org.scalatest.{BeforeAndAfterAll, Tag}
 import org.scalatest.concurrent.ScalaFutures.convertScalaFuture
+import org.scalatest.{BeforeAndAfterAll, Tag}
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.test.Helpers.stubControllerComponents
