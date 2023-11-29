@@ -334,3 +334,22 @@ WARNING: Unmatched cancel notification for request id 379
 2023.11.28 21:46:46 INFO  Shut down connection with build server.
 2023.11.28 21:46:46 INFO  Shut down connection with build server.
 2023.11.28 21:46:46 INFO  Exiting server
+2023.11.29 22:24:50 INFO  Started: Metals version 1.1.0 in folders '/Users/derickdamoahtwum/Desktop/projects/todoList' for client Visual Studio Code 1.84.2.
+2023.11.29 22:24:51 INFO  Attempting to connect to the build server...
+2023.11.29 22:24:51 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.29 22:24:51 INFO  skipping build import with status 'Installed'
+2023.11.29 22:24:51 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.29 22:24:51 INFO  Attempting to connect to the build server...
+2023.11.29 22:24:51 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.29 22:24:51 INFO  Attempting to connect to the build server...
+2023.11.29 22:24:51 INFO  Bloop uses /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home defined at /Users/derickdamoahtwum/.bloop/bloop.json
+2023.11.29 22:24:51 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.29 22:24:51 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/derickdamoahtwum/Desktop/projects/todoList/project/project/.metals/bsp.trace.json or /Users/derickdamoahtwum/Library/Caches/org.scalameta.metals/bsp.trace.json
+2023.11.29 22:24:51 INFO  time: Connected to build server in 0.58s
+2023.11.29 22:24:51 INFO  Connected to Build server: Bloop v1.5.11
+2023.11.29 22:24:52 INFO  time: Imported build in 0.15s
+2023.11.29 22:24:57 INFO  time: indexed workspace in 5.16s
+2023.11.29 22:24:57 INFO  compiling root (1 scala source)
+2023.11.29 22:25:00 INFO  time: compiled root in 3.14s
+2023.11.29 22:25:00 INFO  compiling root-it (2 scala sources)
+2023.11.29 22:25:00 INFO  time: compiled root-it in 2ms

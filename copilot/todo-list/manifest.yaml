@@ -41,3 +41,5 @@ environments:
   test:
     variables:
       LOG_LEVEL: debug        # Log level for the "test" environment.
+      MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
+      MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
