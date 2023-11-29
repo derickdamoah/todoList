@@ -353,3 +353,9 @@ WARNING: Unmatched cancel notification for request id 379
 2023.11.29 22:25:00 INFO  time: compiled root in 3.14s
 2023.11.29 22:25:00 INFO  compiling root-it (2 scala sources)
 2023.11.29 22:25:00 INFO  time: compiled root-it in 2ms
+2023.11.29 22:30:11 INFO  Shutting down server
+2023.11.29 22:30:11 INFO  shutting down Metals
+2023.11.29 22:30:11 INFO  Shut down connection with build server.
+2023.11.29 22:30:11 INFO  Shut down connection with build server.
+2023.11.29 22:30:11 INFO  Shut down connection with build server.
+2023.11.29 22:30:11 INFO  Exiting server
