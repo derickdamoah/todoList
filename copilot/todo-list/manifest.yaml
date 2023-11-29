@@ -13,6 +13,7 @@ image:
   build: ./Dockerfile
   # Port exposed through your container to route traffic to it.
   port: 8080
+  env_file: ../.env
 
 http:
  healthcheck:
