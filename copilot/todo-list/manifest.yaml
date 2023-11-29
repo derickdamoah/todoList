@@ -13,7 +13,6 @@ image:
   build: ./Dockerfile
   # Port exposed through your container to route traffic to it.
   port: 8080
-  env_file: ./.env
 
 http:
  healthcheck:
@@ -35,10 +34,15 @@ memory: 2048
 #
 # tags:                         # Pass tags as key value pairs.
 #   project: project-name
+taskDefinition:
+  environmentFiles:
+    - s3Location:
+        bucket: todo-list-environment-variables/environments/.env
 
 # You can override any of the values defined above by environment.
 environments:
   test:
+    env_file: s3://todo-list-environment-variables/environments/.env
     variables:
       LOG_LEVEL: debug        # Log level for the "test" environment.
       MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
