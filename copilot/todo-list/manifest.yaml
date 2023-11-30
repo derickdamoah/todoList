@@ -34,16 +34,13 @@ variables:                    # Pass environment variables as key value pairs.
   MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
   MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
 
-env_file: s3://todo-list-environment-variables/environments/.env
-
 # tags:                         # Pass tags as key value pairs.
 #   project: project-name
 taskDefinition:
   environmentFiles:
-    - s3Location:
-        bucket: todo-list-environment-variables/environments/.env
+    - ./.env
 
 # You can override any of the values defined above by environment.
 environments:
   test:
-    env_file: s3://todo-list-environment-variables/environments/.env
+    env_file: ./.env
