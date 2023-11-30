@@ -29,9 +29,13 @@ memory: 2048
 
 # Optional fields for more advanced use-cases.
 #
-# variables:                    # Pass environment variables as key value pairs.
-#   LOG_LEVEL: info
-#
+variables:                    # Pass environment variables as key value pairs.
+  LOG_LEVEL: info
+  MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
+  MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
+
+env_file: s3://todo-list-environment-variables/environments/.env
+
 # tags:                         # Pass tags as key value pairs.
 #   project: project-name
 taskDefinition:
@@ -43,7 +47,3 @@ taskDefinition:
 environments:
   test:
     env_file: s3://todo-list-environment-variables/environments/.env
-    variables:
-      LOG_LEVEL: debug        # Log level for the "test" environment.
-      MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
-      MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
