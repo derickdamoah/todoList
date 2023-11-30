@@ -38,7 +38,8 @@ variables:                    # Pass environment variables as key value pairs.
 #   project: project-name
 taskDefinition:
   environmentFiles:
-    - ./.env
+    - s3Location:
+        bucket: todo-list-environment-variables/environments/.env
 
 # You can override any of the values defined above by environment.
 environments:

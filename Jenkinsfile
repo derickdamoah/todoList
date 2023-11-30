@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    environment {
+        ENV_FILE_CONTENT = readFile('.env').trim()
+        MONGO_DB_USERNAME = sh(script: "echo \${ENV_FILE_CONTENT} | grep MONGO_DB_USERNAME | cut -d '=' -f 2", returnStdout: true).trim()
+        MONGO_DB_PASSWORD = sh(script: "echo \${ENV_FILE_CONTENT} | grep MONGO_DB_PASSWORD | cut -d '=' -f 2", returnStdout: true).trim()
+
+    }
     options {
         skipStagesAfterUnstable()
         ansiColor('xterm')
@@ -51,6 +57,8 @@ pipeline {
                     printenv
                     export AWS_REGION='us-east-1'
                     aws configure list
+                    echo "MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}"
+                    echo "MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}"
                     /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --profile default --default-config
                     /home/linuxbrew/.linuxbrew/bin/copilot env deploy --force
                     /home/linuxbrew/.linuxbrew/bin/copilot svc deploy
