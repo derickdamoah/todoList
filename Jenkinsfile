@@ -1,9 +1,23 @@
 pipeline {
     agent any
     environment {
+        // Read the content of the .env file
         ENV_FILE_CONTENT = readFile('.env').trim()
-        MONGO_DB_USERNAME = sh(script: "echo \${ENV_FILE_CONTENT} | grep MONGO_DB_USERNAME | cut -d '=' -f 2", returnStdout: true).trim()
-        MONGO_DB_PASSWORD = sh(script: "echo \${ENV_FILE_CONTENT} | grep MONGO_DB_PASSWORD | cut -d '=' -f 2", returnStdout: true).trim()
+
+        // Define regular expressions for extracting variables
+        def usernameRegex = /MONGO_DB_USERNAME=([^\s]+)/
+        def passwordRegex = /MONGO_DB_PASSWORD=([^\s]+)/
+
+        // Match the regular expressions against the content
+        def usernameMatch = ENV_FILE_CONTENT =~ usernameRegex
+        def passwordMatch = ENV_FILE_CONTENT =~ passwordRegex
+
+        // Extract the values
+        def mongoUsername = usernameMatch ? usernameMatch[0][1] : null
+        def mongoPassword = passwordMatch ? passwordMatch[0][1] : null
+
+        MONGO_DB_USERNAME = ${mongoUsername}
+        MONGO_DB_PASSWORD = ${mongoPassword}
 
     }
     options {
