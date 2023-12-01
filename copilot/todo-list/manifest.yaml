@@ -22,6 +22,14 @@ http:
    interval: 10s
    timeout: 5s
 
+tasks:
+  todo-list-test-todo-list:
+    executionRole: arn:aws:iam::928781565552:role/todo-list-test-todo-list-ExecutionRole-9UX6YwHDIRJQ
+    taskRole: arn:aws:iam::928781565552:role/todo-list-test-todo-list-TaskRole-rJCuDLqqKEtI
+    taskDefinition:
+      name: todo-list-test-todo-list
+      revision: 17
+
 # Number of CPU units for the task.
 cpu: 1024
 # Amount of memory in MiB used by the task.
@@ -33,6 +41,4 @@ memory: 2048
 # You can override any of the values defined above by environment.
 environments:
   test:
-    variables:
-      MONGO_DB_USERNAME: ssm:MONGO_DB_USERNAME
-      MONGODB_PASSWORD: ssm:MONGO_DB_PASSWORD
+    env_file: arn:aws:s3:::todo-list-environment-variables/environments/.env
