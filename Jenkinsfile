@@ -3,7 +3,6 @@ pipeline {
     environment {
         MONGO_DB_USERNAME = credentials('MONGO_DB_USERNAME')
         MONGO_DB_PASSWORD = credentials('MONGO_DB_PASSWORD')
-
     }
     options {
         skipStagesAfterUnstable()
@@ -56,11 +55,9 @@ pipeline {
                     printenv
                     export AWS_REGION='us-east-1'
                     aws configure list
-                    echo "MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}"
-                    echo "MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}"
                     /home/linuxbrew/.linuxbrew/bin/copilot env init --name test --profile default --default-config
                     /home/linuxbrew/.linuxbrew/bin/copilot env deploy --force
-                    /home/linuxbrew/.linuxbrew/bin/copilot svc deploy
+                    /home/linuxbrew/.linuxbrew/bin/copilot svc deploy --env test --force
                 '''
             }
         }
