@@ -37,6 +37,14 @@ memory: 2048
 
 # Optional fields for more advanced use-cases.
 
+# manifest.yaml
+
+
+environment:
+  - name: VARIABLE_ONE
+    value: value-one
+  - name: VARIABLE_TWO
+    value: value-two
 
 # You can override any of the values defined above by environment.
 environments:
