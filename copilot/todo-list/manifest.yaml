@@ -28,20 +28,11 @@ cpu: 1024
 memory: 2048
 
 # Optional fields for more advanced use-cases.
-#
-variables:                    # Pass environment variables as key value pairs.
-  LOG_LEVEL: info
-  MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
-  MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
 
-# tags:                         # Pass tags as key value pairs.
-#   project: project-name
-taskDefinition:
-  environmentFiles:
-    - s3Location:
-        bucket: todo-list-environment-variables/environments/.env
 
 # You can override any of the values defined above by environment.
 environments:
   test:
-    env_file: ./.env
+    variables:
+      MONGO_DB_USERNAME: ssm:MONGO_DB_USERNAME
+      MONGODB_PASSWORD: ssm:MONGO_DB_PASSWORD
