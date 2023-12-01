@@ -49,6 +49,4 @@ environment:
 # You can override any of the values defined above by environment.
 environments:
   test:
-    variables:
-      MONGO_DB_USERNAME: "test-username"
-      MONGODB_PASSWORD: "test-password"
+    env_file: arn:aws:s3:::todo-list-environment-variables/environments/.env
