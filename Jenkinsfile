@@ -56,6 +56,7 @@ pipeline {
                     export AWS_REGION='us-east-1'
                     aws configure list
                     /home/linuxbrew/.linuxbrew/bin/copilot svc package
+                    /home/linuxbrew/.linuxbrew/bin/copilot deploy
                 '''
             }
         }

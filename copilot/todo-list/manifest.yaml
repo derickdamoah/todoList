@@ -39,11 +39,10 @@ memory: 2048
 
 # manifest.yaml
 
-
-environment:
-  - name: VARIABLE_ONE
-
 # You can override any of the values defined above by environment.
 environments:
   test:
-    env_file: arn:aws:s3:::todo-list-environment-variables/environments/.env
+    variables:
+      DATABASE_URL: "mongodb://staging-database-url"
+      API_KEY: "your-staging-api-key"
+#    env_file: arn:aws:s3:::todo-list-environment-variables/environments/.env
