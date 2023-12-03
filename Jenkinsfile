@@ -55,7 +55,7 @@ pipeline {
                     printenv
                     export AWS_REGION='us-east-1'
                     aws configure list
-                    /home/linuxbrew/.linuxbrew/bin/copilot job deploy
+                    /home/linuxbrew/.linuxbrew/bin/copilot init --app testing --name todo-list --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy
                 '''
             }
         }
