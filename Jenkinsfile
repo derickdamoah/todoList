@@ -55,7 +55,6 @@ pipeline {
                     printenv
                     export AWS_REGION='us-east-1'
                     aws configure list
-                    /home/linuxbrew/.linuxbrew/bin/copilot env show --name test --manifest
                     /home/linuxbrew/.linuxbrew/bin/copilot job deploy
                 '''
             }
