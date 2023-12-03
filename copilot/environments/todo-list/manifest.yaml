@@ -12,7 +12,7 @@ image:
   # For additional overrides: https://aws.github.io/copilot-cli/docs/manifest/rd-web-service/#image-build
   build: ./Dockerfile
   # Port exposed through your container to route traffic to it.
-  port: 8080
+  port: 9000
 
 http:
  healthcheck:
@@ -45,4 +45,5 @@ environments:
     variables:
       DATABASE_URL: "mongodb://staging-database-url"
       API_KEY: "your-staging-api-key"
+    env_file: ./.env
 #    env_file: arn:aws:s3:::todo-list-environment-variables/environments/.env
