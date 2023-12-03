@@ -37,7 +37,7 @@ memory: 2048
 
 # Optional fields for more advanced use-cases.
 
-# manifest.yaml
+# manifest.yml
 
 # You can override any of the values defined above by environment.
 environments:
