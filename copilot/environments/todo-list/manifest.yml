@@ -41,7 +41,7 @@ memory: 2048
 
 # You can override any of the values defined above by environment.
 environments:
-  test:
+  todo-list:
     variables:
       DATABASE_URL: "mongodb://staging-database-url"
       API_KEY: "your-staging-api-key"
